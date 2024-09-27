@@ -1,0 +1,132 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+
+/* Main container */
+.container {
+    display: flex;
+    justify-content: flex-start; /* Start with the background image */
+    height: 100vh;
+    position: relative;
+}
+
+/* Logo container */
+.logo-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Initially hidden */
+    z-index: 10; /* Ensure logo is on top */
+    transition: opacity 1.2s ease, transform 2s ease; /* Slow transition */
+}
+
+/* Logo styling */
+.logo {
+    width: 60px; /* Reduced size */
+    height: 60px; /* Make it a square */
+    border-radius: 50%; /* Make the logo circular */
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent background */
+    transition: transform 0.5s ease; /* Added zoom effect */
+}
+
+/* Form container */
+.form-container {
+    width: 50%;
+    padding: 60px;
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    background: rgba(106, 149, 175, 0.9); /* Sky blue background */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    position: relative;
+    z-index: 5; /* Ensure form is above background */
+}
+
+/* Form text styling */
+.form-container h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 10px;
+}
+  
+.form-container p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Background image */
+.bg-image {
+    width: 100%;
+    background: url('beach-house.jpg') no-repeat center center/cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transition: transform 1.5s ease; /* Smooth transition for shrinking and shifting */
+}
+
+/* Animations */
+.active .logo-container {
+    top: 20px; /* Move to top */
+    left: 30px; /* Move to left */
+    transform: translate(0, 0); /* Adjust transform */
+    opacity: 1; /* Make logo visible */
+}
+
+.active .form-container {
+    display: flex; /* Show the form */
+}
+
+.active .bg-image {
+    transform: translateX(50%) scale(0.8); /* Shift right while reducing size */
+}
+
+.active .logo {
+    transform: scale(1.5); /* Zoom in effect for logo */
+}
+
+/* New class for logo center animation after submit */
+.logo-center {
+    transform: scale(0.5); /* Shrink logo at center */
+    opacity: 0; /* Fade out the logo */
+}
